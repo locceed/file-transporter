@@ -223,7 +223,14 @@ namespace file_transporter
         }
         private void TabItem_MouseMove(object sender, MouseEventArgs e)
         {
-            simplify();
+            if (simplifyd == false)
+            {
+                simplify();
+            }
+            else
+            {
+
+            }
         }
         private void button5_Click(object sender, RoutedEventArgs e)
         {
