@@ -174,7 +174,7 @@ namespace file_transporter
         ///////////////////////////////////////////////////////
         private void delete()
         {
-            if(listBox2.SelectedItems.Count>=0)
+            if(listBox2.SelectedItems.Count>0)
             {
                 listBox2.Items.RemoveAt(listBox2.SelectedIndex);
             }
@@ -249,6 +249,10 @@ namespace file_transporter
             }));
             foreach(object each in orgfilelocations)
             {
+                this.Dispatcher.Invoke(new Action(delegate
+                {
+                    textBlock4.Text = "copying:   " + each;
+                }));
                 File.Copy(each.ToString(), desfilelocations[count].ToString(),true);
                 this.Dispatcher.Invoke(new Action(delegate
                 {
@@ -256,6 +260,10 @@ namespace file_transporter
                 }));
                 count++;
             }
+            this.Dispatcher.Invoke(new Action(delegate
+            {
+                textBlock4.Text = "无";
+            }));
         }
         public void locatefile(string orgpath,string despath)
         {

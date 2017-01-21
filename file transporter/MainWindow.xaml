@@ -11,9 +11,9 @@
             <TabItem Header="文件选择">
                 <Grid Background="#FFE5E5E5" Margin="0,-3,0,3">
                     <Button x:Name="button" Content="获取磁盘" HorizontalAlignment="Left" Margin="2,246,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
-                    <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="237" Margin="2,4,0,0" VerticalAlignment="Top" Width="50" SelectionChanged="listBox_SelectionChanged"/>
+                    <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="237" Margin="10,4,0,0" VerticalAlignment="Top" Width="50" SelectionChanged="listBox_SelectionChanged"/>
                     <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="59,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="442" MouseEnter="textBox_MouseEnter"/>
-                    <ListBox x:Name="listBox1" HorizontalAlignment="Left" Height="214" Margin="59,27,0,0" VerticalAlignment="Top" Width="442" SelectionChanged="listBox1_SelectionChanged" SelectionMode="Multiple" MouseDoubleClick="listBox1_MouseDoubleClick"/>
+                    <ListBox x:Name="listBox1" HorizontalAlignment="Left" Height="215" Margin="59,26,0,0" VerticalAlignment="Top" Width="442" SelectionChanged="listBox1_SelectionChanged" SelectionMode="Multiple" MouseDoubleClick="listBox1_MouseDoubleClick"/>
                     <Button x:Name="button1" Content="后退" HorizontalAlignment="Left" Margin="82,246,0,0" VerticalAlignment="Top" Width="75" Click="button1_Click"/>
                     <Button x:Name="button2" Content="添加所选项" HorizontalAlignment="Left" Margin="162,246,0,0" VerticalAlignment="Top" Width="75" Click="button2_Click"/>
                     <Button x:Name="button6" Content="全选" HorizontalAlignment="Left" Margin="242,246,0,0" VerticalAlignment="Top" Width="75" Click="button6_Click"/>
@@ -40,6 +40,8 @@
                     <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="23" Margin="18.479,192,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="385" Text="C:\Users\14033\Desktop\copy" Grid.Column="1"/>
                     <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="63,196,0,0" TextWrapping="Wrap" Text="备份位置" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
                     <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" Margin="10,211,0,0" TextWrapping="Wrap" Text="进度" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="textBlock4" Grid.Column="1" HorizontalAlignment="Left" Margin="32,243,0,0" TextWrapping="Wrap" Text="无" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="textBlock5" HorizontalAlignment="Left" Margin="97,243,0,0" TextWrapping="Wrap" Text="进程：" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
                 </Grid>
             </TabItem>
         </TabControl>
