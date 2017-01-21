@@ -21,27 +21,22 @@
             </TabItem>
             <TabItem Header="文件列表" MouseMove="TabItem_MouseMove">
                 <Grid Background="#FFE5E5E5">
-                    <ListBox x:Name="listBox2" HorizontalAlignment="Left" Height="227" Margin="10,10,0,0" VerticalAlignment="Top" Width="491"/>
                     <Button x:Name="button3" Content="删除该项" HorizontalAlignment="Left" Margin="10,242,0,0" VerticalAlignment="Top" Width="75" Click="button3_Click"/>
                     <Button x:Name="button5" Content="全选" HorizontalAlignment="Left" Margin="90,242,0,0" VerticalAlignment="Top" Width="75" Click="button5_Click"/>
+                    <ListBox x:Name="listBox2" HorizontalAlignment="Left" Height="242" VerticalAlignment="Top" Width="511"/>
                 </Grid>
             </TabItem>
             <TabItem Header="备份" MouseMove="TabItem_MouseMove_1">
                 <Grid Background="#FFE5E5E5">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="14*"/>
-                        <ColumnDefinition Width="59*"/>
-                    </Grid.ColumnDefinitions>
-                    <Button x:Name="button4" Content="开始" HorizontalAlignment="Left" Margin="10,263,0,0" VerticalAlignment="Top" Width="75" Click="button4_Click"/>
-                    <ProgressBar x:Name="progessbar" HorizontalAlignment="Left" Height="10" Margin="10,228,0,0" VerticalAlignment="Top" Width="491" Grid.ColumnSpan="2"/>
-                    <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,243,0,0" TextWrapping="Wrap" Text="状态：" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="50,243,0,0" TextWrapping="Wrap" Text="就绪" VerticalAlignment="Top"/>
+                    <Button x:Name="button4" Content="开始" HorizontalAlignment="Left" Margin="10,244,0,0" VerticalAlignment="Top" Width="75" Click="button4_Click"/>
+                    <ProgressBar x:Name="progessbar" HorizontalAlignment="Left" Height="10" Margin="39,211,0,0" VerticalAlignment="Top" Width="462"/>
+                    <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,224,0,0" TextWrapping="Wrap" Text="状态：" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="46,224,0,0" TextWrapping="Wrap" Text="就绪" VerticalAlignment="Top" Width="61"/>
                     <ListBox x:Name="listBox3" HorizontalAlignment="Left" Height="177" Margin="10,10,0,0" VerticalAlignment="Top" Width="491" Grid.ColumnSpan="2"/>
-                    <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="23" Margin="18.479,192,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="385" Text="C:\Users\14033\Desktop\copy" Grid.Column="1"/>
-                    <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="63,196,0,0" TextWrapping="Wrap" Text="备份位置" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-                    <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" Margin="10,211,0,0" TextWrapping="Wrap" Text="进度" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlock4" Grid.Column="1" HorizontalAlignment="Left" Margin="32,243,0,0" TextWrapping="Wrap" Text="无" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlock5" HorizontalAlignment="Left" Margin="97,243,0,0" TextWrapping="Wrap" Text="进程：" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="23" Margin="116,187,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="385" Text="C:\Users\14033\Desktop\copy"/>
+                    <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="63,190,0,0" TextWrapping="Wrap" Text="备份位置" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" Margin="10,207,0,0" TextWrapping="Wrap" Text="进度" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="textBlock4" HorizontalAlignment="Left" Margin="107,224,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="394"/>
                 </Grid>
             </TabItem>
         </TabControl>

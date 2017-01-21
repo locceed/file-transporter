@@ -238,10 +238,18 @@ namespace file_transporter
                     target = textBox1.Text;
                 }));
             Directory.CreateDirectory(target);
+            this.Dispatcher.Invoke(new Action(delegate
+            {
+                textBlock1.Text = "准备中:";
+            }));
             foreach (object each in listBox3.Items)
             {
                locatefile(each.ToString(),target);
             }
+            this.Dispatcher.Invoke(new Action(delegate
+            {
+                textBlock1.Text = "正在复制:";
+            }));
             int count = 0;
             this.Dispatcher.Invoke(new Action(delegate
             {
@@ -251,7 +259,7 @@ namespace file_transporter
             {
                 this.Dispatcher.Invoke(new Action(delegate
                 {
-                    textBlock4.Text = "copying:   " + each;
+                    textBlock4.Text = each.ToString() ;
                 }));
                 File.Copy(each.ToString(), desfilelocations[count].ToString(),true);
                 this.Dispatcher.Invoke(new Action(delegate
@@ -263,6 +271,8 @@ namespace file_transporter
             this.Dispatcher.Invoke(new Action(delegate
             {
                 textBlock4.Text = "无";
+                textBlock1.Text = "就绪";
+                button4.IsEnabled = true;
             }));
         }
         public void locatefile(string orgpath,string despath)
@@ -288,6 +298,10 @@ namespace file_transporter
                             Directory.CreateDirectory(despath);
                         }
                         orgfilelocations.Add(each);
+                        this.Dispatcher.Invoke(new Action(delegate
+                        {
+                            textBlock4.Text = each.ToString();
+                        }));
                         desfilelocations.Add(despath + "\\" + each.Substring(each.LastIndexOf("\\") + 1));
                     }
                 }
@@ -300,12 +314,10 @@ namespace file_transporter
         }
         private void button4_Click(object sender, RoutedEventArgs e)
         {
-            textBlock1.Text = "正在复制";
+            progessbar.Value = 0;
             button4.IsEnabled = false;
             copy_thread = new Thread(new ThreadStart(start));
             copy_thread.Start();
-            textBlock1.Text = "就绪";
-            button4.IsEnabled = true;
         }
         private void TabItem_MouseMove_1(object sender, MouseEventArgs e)
         {
