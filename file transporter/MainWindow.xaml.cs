@@ -38,6 +38,7 @@ namespace file_transporter
         ArrayList desfilelocations = new ArrayList();
         Thread copy_thread;
         bool added = false;
+        bool sused = false;
         private void drive()
         {
             try
@@ -217,6 +218,33 @@ namespace file_transporter
                 listBox2.Items.Add(each.ToString());
             }
         }
+        private void save()
+        {
+            string path1 = Environment.CurrentDirectory;
+            FileStream file1 = new FileStream(path1 + "\\saves.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            StreamWriter writer1 = new StreamWriter(file1);
+            foreach(object each in listBox2.Items)
+            {
+                writer1.WriteLine(each.ToString());
+            }
+            writer1.Flush();
+            writer1.Close();
+            file1.Close();
+        }
+        private void readsave()
+        {
+            string path1 = Environment.CurrentDirectory;
+            FileStream file1 = new FileStream(path1 + "\\saves.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            StreamReader reader1 = new StreamReader(file1);
+            string line = "";
+            while((line =reader1.ReadLine()) != null)
+            {
+                listBox2.Items.Add(line);
+            }
+            simplifyd = false;
+            reader1.Close();
+            file1.Close();
+        }
         private void button3_Click(object sender, RoutedEventArgs e)
         {
             delete();
@@ -235,6 +263,16 @@ namespace file_transporter
         private void button5_Click(object sender, RoutedEventArgs e)
         {
             listBox1.SelectAll();
+        }
+        private void button8_Click(object sender, RoutedEventArgs e)
+        {
+            save();
+            textBlock5.Text = "已存储";
+        }
+        private void button9_Click(object sender, RoutedEventArgs e)
+        {
+            readsave();
+            textBlock5.Text = "已读取";
         }
         ///////////////////////////////////////////////////////
         public void start()
@@ -325,6 +363,26 @@ namespace file_transporter
             button4.IsEnabled = false;
             copy_thread = new Thread(new ThreadStart(start));
             copy_thread.Start();
+        }
+        private void button7_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (sused == false)
+                {
+                    copy_thread.Suspend();
+                    sused = true;
+                }
+                else
+                {
+                    copy_thread.Resume();
+                    sused = false;
+                }
+            }
+            catch
+            {
+
+            }
         }
         private void TabItem_MouseMove_1(object sender, MouseEventArgs e)
         {

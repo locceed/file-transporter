@@ -24,6 +24,9 @@
                     <Button x:Name="button3" Content="删除该项" HorizontalAlignment="Left" Margin="10,242,0,0" VerticalAlignment="Top" Width="75" Click="button3_Click"/>
                     <Button x:Name="button5" Content="全选" HorizontalAlignment="Left" Margin="90,242,0,0" VerticalAlignment="Top" Width="75" Click="button5_Click"/>
                     <ListBox x:Name="listBox2" HorizontalAlignment="Left" Height="242" VerticalAlignment="Top" Width="511"/>
+                    <Button x:Name="button8" Content="保存备份文件" HorizontalAlignment="Left" Margin="170,242,0,0" VerticalAlignment="Top" Width="75" Click="button8_Click"/>
+                    <Button x:Name="button9" Content="读取备份文件" HorizontalAlignment="Left" Margin="250,242,0,0" VerticalAlignment="Top" Width="75" Click="button9_Click"/>
+                    <TextBlock x:Name="textBlock5" HorizontalAlignment="Left" Margin="446,267,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
                 </Grid>
             </TabItem>
             <TabItem Header="备份" MouseMove="TabItem_MouseMove_1">
@@ -37,6 +40,7 @@
                     <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="63,190,0,0" TextWrapping="Wrap" Text="备份位置" VerticalAlignment="Top"/>
                     <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" Margin="10,207,0,0" TextWrapping="Wrap" Text="进度" VerticalAlignment="Top"/>
                     <TextBlock x:Name="textBlock4" HorizontalAlignment="Left" Margin="107,224,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="394"/>
+                    <Button x:Name="button7" Content="暂停/继续" HorizontalAlignment="Left" Margin="10,263,0,0" VerticalAlignment="Top" Width="75" Click="button7_Click"/>
                 </Grid>
             </TabItem>
         </TabControl>
