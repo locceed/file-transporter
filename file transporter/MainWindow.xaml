@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:file_transporter"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="备份器" Height="350" Width="525">
     <Grid>
         <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="319" VerticalAlignment="Top" Width="517">
             <TabItem Header="文件选择">
