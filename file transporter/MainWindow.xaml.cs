@@ -227,6 +227,7 @@ namespace file_transporter
             {
                 writer1.WriteLine(each.ToString());
             }
+            writer1.WriteLine(textBox1.Text);
             writer1.Flush();
             writer1.Close();
             file1.Close();
@@ -237,9 +238,23 @@ namespace file_transporter
             FileStream file1 = new FileStream(path1 + "\\saves.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite);
             StreamReader reader1 = new StreamReader(file1);
             string line = "";
+            ArrayList temp = new ArrayList();
             while((line =reader1.ReadLine()) != null)
             {
-                listBox2.Items.Add(line);
+                temp.Add(line);
+            }
+            int count = 0;
+            foreach(object each in temp)
+            {
+                if (count == temp.Count)
+                {
+                    textBox1.Text = each.ToString();
+                }
+                else
+                {
+                    listBox2.Items.Add(each);
+                }
+                count++;
             }
             simplifyd = false;
             reader1.Close();
