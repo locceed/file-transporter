@@ -262,7 +262,7 @@ namespace file_transporter
         }
         private void button5_Click(object sender, RoutedEventArgs e)
         {
-            listBox1.SelectAll();
+            listBox2.SelectAll();
         }
         private void button8_Click(object sender, RoutedEventArgs e)
         {
