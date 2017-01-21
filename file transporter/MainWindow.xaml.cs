@@ -27,6 +27,7 @@ namespace file_transporter
         {
             InitializeComponent();
             drive();
+            textBox1.Text = Environment.CurrentDirectory;
         }
         string path = "";
         string doubleclicktemp = "";
@@ -155,6 +156,17 @@ namespace file_transporter
         private void button6_Click(object sender, RoutedEventArgs e)
         {
             listBox1.SelectAll();
+        }
+        private void button10_Click(object sender, RoutedEventArgs e)
+        {
+            if (listBox1.SelectedItems.Count == 1)
+            {
+                textBox1.Text = path + @"\" + listBox1.SelectedItems[0].ToString();
+            }
+            else
+            {
+                MessageBox.Show("你选择的文件数有问题哦");
+            }
         }
         private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
