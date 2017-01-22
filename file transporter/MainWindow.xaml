@@ -24,7 +24,7 @@
                 <Grid Background="#FFE5E5E5">
                     <Button x:Name="button3" Content="删除该项" HorizontalAlignment="Left" Margin="10,242,0,0" VerticalAlignment="Top" Width="75" Click="button3_Click"/>
                     <Button x:Name="button5" Content="全选" HorizontalAlignment="Left" Margin="90,242,0,0" VerticalAlignment="Top" Width="75" Click="button5_Click"/>
-                    <ListBox x:Name="listBox2" HorizontalAlignment="Left" Height="242" VerticalAlignment="Top" Width="511"/>
+                    <ListBox x:Name="listBox2" HorizontalAlignment="Left" Height="242" VerticalAlignment="Top" Width="511" SelectionMode="Multiple"/>
                     <Button x:Name="button8" Content="保存备份文件" HorizontalAlignment="Left" Margin="170,242,0,0" VerticalAlignment="Top" Width="75" Click="button8_Click"/>
                     <Button x:Name="button9" Content="读取备份文件" HorizontalAlignment="Left" Margin="250,242,0,0" VerticalAlignment="Top" Width="75" Click="button9_Click"/>
                     <TextBlock x:Name="textBlock5" HorizontalAlignment="Left" Margin="446,242,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="65"/>

@@ -27,7 +27,8 @@ namespace file_transporter
         {
             InitializeComponent();
             drive();
-            textBox1.Text = Environment.CurrentDirectory;
+            Directory.CreateDirectory(Environment.CurrentDirectory + "\\backup");
+            textBox1.Text = Environment.CurrentDirectory + "\\backup";
         }
         string path = "";
         string doubleclicktemp = "";
@@ -233,6 +234,7 @@ namespace file_transporter
         private void save()
         {
             string path1 = Environment.CurrentDirectory;
+            File.Delete(path1 + "\\saves.txt");
             FileStream file1 = new FileStream(path1 + "\\saves.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite);
             StreamWriter writer1 = new StreamWriter(file1);
             foreach(object each in listBox2.Items)
@@ -258,7 +260,7 @@ namespace file_transporter
             int count = 0;
             foreach(object each in temp)
             {
-                if (count == temp.Count)
+                if (count == temp.Count - 1) 
                 {
                     textBox1.Text = each.ToString();
                 }
