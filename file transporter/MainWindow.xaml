@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:file_transporter"
         mc:Ignorable="d"
-        Title="备份器" Height="350" Width="525">
+        Title="备份器" Height="350" Width="525" Closing="Window_Closing">
     <Grid>
         <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="319" VerticalAlignment="Top" Width="517">
             <TabItem Header="文件选择">
@@ -40,8 +40,9 @@
                     <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="23" Margin="116,187,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="385"/>
                     <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="63,190,0,0" TextWrapping="Wrap" Text="备份位置" VerticalAlignment="Top"/>
                     <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" Margin="10,207,0,0" TextWrapping="Wrap" Text="进度" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlock4" HorizontalAlignment="Left" Margin="107,224,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="394"/>
+                    <TextBlock x:Name="textBlock4" HorizontalAlignment="Left" Margin="107,224,0,0" TextWrapping="WrapWithOverflow" VerticalAlignment="Top" Width="394"/>
                     <Button x:Name="button7" Content="暂停/继续" HorizontalAlignment="Left" Margin="10,263,0,0" VerticalAlignment="Top" Width="75" Click="button7_Click"/>
+                    <TextBlock x:Name="textBlock6" HorizontalAlignment="Left" Margin="85,267,0,0" TextWrapping="WrapWithOverflow" VerticalAlignment="Top" Width="219"/>
                 </Grid>
             </TabItem>
         </TabControl>

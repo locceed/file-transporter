@@ -39,6 +39,7 @@ namespace file_transporter
         ArrayList orgfilelocations = new ArrayList();
         ArrayList desfilelocations = new ArrayList();
         Thread copy_thread;
+        Thread copy_thread_ax;
         bool added = false;
         bool sused = false;
         private void drive()
@@ -202,11 +203,11 @@ namespace file_transporter
             simplifyd = true;
             bool temp1 = false;
             ArrayList temp = new ArrayList();
-            foreach(object each in listBox2.Items)
+            foreach (object each in listBox2.Items)
             {
-                foreach(object each1 in temp)
+                foreach (object each1 in temp)
                 {
-                    if (each.ToString() == each1.ToString()) 
+                    if (each.ToString() == each1.ToString())
                     {
                         temp1 = true;
                         break;
@@ -229,6 +230,40 @@ namespace file_transporter
             foreach (object each in temp)
             {
                 listBox2.Items.Add(each.ToString());
+            }
+        }
+        private void simplify1()
+        {
+            simplifyd = true;
+            bool temp1 = false;
+            ArrayList temp = new ArrayList();
+            foreach (object each in listBox3.Items)
+            {
+                foreach (object each1 in temp)
+                {
+                    if (each.ToString() == each1.ToString())
+                    {
+                        temp1 = true;
+                        break;
+                    }
+                    else
+                    {
+
+                    }
+                }
+                if (temp1 == true)
+                {
+                    temp1 = false;
+                }
+                else
+                {
+                    temp.Add(each.ToString());
+                }
+            }
+            listBox3.Items.Clear();
+            foreach (object each in temp)
+            {
+                listBox3.Items.Add(each.ToString());
             }
         }
         private void save()
@@ -267,6 +302,7 @@ namespace file_transporter
                 else
                 {
                     listBox2.Items.Add(each);
+                    listBox3.Items.Add(each);
                 }
                 count++;
             }
@@ -283,6 +319,7 @@ namespace file_transporter
             if (simplifyd == false)
             {
                 simplify();
+                simplify1();
             }
             else
             {
@@ -324,6 +361,8 @@ namespace file_transporter
             {
                 textBlock1.Text = "正在复制:";
             }));
+            copy_thread_ax = new Thread(new ThreadStart(timeleft));
+            copy_thread_ax.Start();
             int count = 0;
             this.Dispatcher.Invoke(new Action(delegate
             {
@@ -386,6 +425,40 @@ namespace file_transporter
                 desfilelocations.Add(despath);
             }
         }
+        private void timeleft()
+        {
+            DateTime timepoint1 = DateTime.Now;
+            string temp = "";
+            this.Dispatcher.Invoke(new Action(delegate
+            {
+                temp = textBlock1.Text;
+            }));
+            while (temp=="正在复制:")
+            {
+                int time = 0;
+                this.Dispatcher.Invoke(new Action(delegate
+                {
+                    try
+                    {
+                        time = Convert.ToInt32((progessbar.Maximum - progessbar.Value) / (progessbar.Value / (DateTime.Now - timepoint1).TotalSeconds));
+                        textBlock6.Text = "剩余时间:  " + time.ToString() + "秒";
+                    }
+                    catch
+                    {
+                        time = 0;
+                        this.Dispatcher.Invoke(new Action(delegate
+                        {
+                            textBlock6.Text = "剩余时间:  " + time.ToString() + "秒";
+                        }));
+                    }
+                }));
+                Thread.Sleep(1000);
+            }
+            this.Dispatcher.Invoke(new Action(delegate
+            {
+                textBlock6.Text = "完成";
+            }));
+        }
         private void button4_Click(object sender, RoutedEventArgs e)
         {
             progessbar.Value = 0;
@@ -399,12 +472,26 @@ namespace file_transporter
             {
                 if (sused == false)
                 {
-                    copy_thread.Suspend();
+                    if (copy_thread.ThreadState == ThreadState.Running)
+                    {
+                        copy_thread.Suspend();
+                    }
+                    if (copy_thread_ax.ThreadState == ThreadState.Running)
+                    {
+                        copy_thread_ax.Suspend();
+                    } 
                     sused = true;
                 }
                 else
                 {
-                    copy_thread.Resume();
+                    if (copy_thread.ThreadState == ThreadState.Suspended)
+                    {
+                        copy_thread.Resume();
+                    }
+                    if (copy_thread_ax.ThreadState == ThreadState.Suspended)
+                    {
+                        copy_thread_ax.Resume();
+                    }
                     sused = false;
                 }
             }
@@ -423,6 +510,10 @@ namespace file_transporter
                 }
                 added = true;
             }
+        }
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }
